@@ -10,7 +10,6 @@ module TC_Register (clk, rst, load, save, in, out);
     output reg [BIT_WIDTH-1:0] out;
 
     reg [BIT_WIDTH-1:0] value;
-    reg reset;
     
     initial begin
         out = {BIT_WIDTH{1'b0}};
