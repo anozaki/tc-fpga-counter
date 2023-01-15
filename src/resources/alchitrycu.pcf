@@ -1,0 +1,27 @@
+set_io clk   P7
+set_io rst_n P8
+
+set_io io_sel_0 G3
+set_io io_sel_1 G1
+set_io io_sel_2 H1
+set_io io_sel_3 H3
+
+set_io io_seg[0] J1
+set_io io_seg[1] J3
+set_io io_seg[2] N1
+set_io io_seg[3] K4
+set_io io_seg[4] K3
+set_io io_seg[5] L1
+set_io io_seg[6] M1
+set_io io_seg[7] P1
+
+# set_io io_led[0] G14
+# set_io io_led[1] F14
+# set_io io_led[2] E12
+# set_io io_led[3] E14
+# set_io io_led[4] D14
+# set_io io_led[5] C14
+# set_io io_led[6] B14
+# set_io io_led[7] A12
+set_io debug_timer G14
+set_io debug_reset F14
