@@ -1,1 +1,3 @@
 build
+obj_dir
+waveform.vcd

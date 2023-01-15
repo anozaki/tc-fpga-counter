@@ -11,6 +11,7 @@ FPGA_PKG = cb132
 PCF = src/resources/alchitrycu.pcf
 
 SRC_V   := $(wildcard src/rtl/$(PROJECT)/builtin_components/*.v) $(wildcard src/rtl/$(PROJECT)/*.v)  $(wildcard src/rtl/$(PROJECT)/custom_components/LED/*.v)
+SRC_CPP := $(wildcard src/test/*.cpp)
 
 .PHONY: all
 all:  build/$(PROJECT).bin
@@ -28,8 +29,15 @@ build/$(PROJECT).asc: build/$(PROJECT).json
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.asc
 	icepack $< $@
 
+.PHONY: verilator
+verilator: $(SRC_V) $(SRC_CPP)
+	verilator -cc $(SRC_V) --top-module Count -Wno-WIDTH -Wno-SELRANGE -O3 --x-assign fast --x-initial fast --noassert --trace --exe $(SRC_CPP)
+	make -C obj_dir -f VCount.mk VCount
+	./obj_dir/VCount
+	gtkwave ./waveform.vcd
+
 flash: $(BUILD_DIR)/$(PROJECT).bin
 	iceprog $<
 
 clean:
-	rm -rf build
+	rm -rf build obj_dir

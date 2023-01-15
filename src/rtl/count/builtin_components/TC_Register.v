@@ -21,17 +21,18 @@ module TC_Register (clk, rst, load, save, in, out);
     //            Removed "load", since my design didn't require it and simplified this file.
 
     always @ (posedge clk) begin
-        if (rst)
-            out <= {BIT_WIDTH{1'b0}};
-        else
-            out <= value;
-        reset <= rst;
-    end
-    always @ (negedge clk) begin
-        if (reset)
-            value <= {BIT_WIDTH{1'b0}};
-        else if (save)
-            value <= in;
+        if (rst) begin
+            value = {BIT_WIDTH{1'b0}};
+        end 
+        else begin
+            if (load)
+                out <= value;
+            else
+                out <= {BIT_WIDTH{1'b0}};
+
+            if (save)
+                value = in;
+        end
     end
 
  endmodule

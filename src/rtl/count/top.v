@@ -1,3 +1,4 @@
+/// Top-v
 module top (clk, rst_n, io_sel_0, io_sel_1, io_sel_2, io_sel_3, io_seg, debug_timer, debug_reset);
   input clk;
   input rst_n;
@@ -26,7 +27,8 @@ module top (clk, rst_n, io_sel_0, io_sel_1, io_sel_2, io_sel_3, io_seg, debug_ti
         .sel3(io_sel_2_t),
         .sel4(io_sel_3_t),
         .seg(io_seg_t),
-        .cycle(100_000_000)
+        .cycle(100_000_000),
+        .segtiming(200)
     );
 
     assign io_seg = ~io_seg_t;
