@@ -16,17 +16,10 @@ module top (clk, rst_n, io_sel_0, io_sel_1, io_sel_2, io_sel_3, io_seg, debug_ti
   wire io_sel_2_t;
   wire io_sel_3_t;
   wire [7:0] io_seg_t;
-  
-    wire rst;
-    dff_pipeline reset_conditioner(
-        .clk(clk),
-        .rst_in(~rst_n),
-        .rst_out(rst),
-    );
 
     Count test_counter (
         .clk(clk),
-        .rst(rst),
+        .rst(~rst_n),
         .debug(debug_timer),
         .sel1(io_sel_0_t),
         .sel2(io_sel_1_t),
@@ -41,9 +34,6 @@ module top (clk, rst_n, io_sel_0, io_sel_1, io_sel_2, io_sel_3, io_seg, debug_ti
     assign io_sel_1 = ~io_sel_1_t;
     assign io_sel_2 = ~io_sel_2_t;
     assign io_sel_3 = ~io_sel_3_t;
-    assign debug_reset = rst;
-
-    // assign io_led = 'b11111111;
-    // assign io_led2 = 'b11111111;
+    assign debug_reset = ~rst_n;
 
 endmodule

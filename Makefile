@@ -1,5 +1,6 @@
-# FIXME I don't really want to write a custom Makefile but this does make thing easier to get going.
-
+# I don't really want to write a custom Makefile but this does make thing easier to get going.
+#
+# using tool from: https://github.com/YosysHQ/oss-cad-suite-build
 
 BUILD_DIR = build
 
@@ -22,7 +23,7 @@ build/$(PROJECT).json: $(SRC_V)
 	yosys -ql $(subst .json,,$@)-yosys.log -p 'synth_ice40 -top top -json $@' $(SRC_V) 
 
 build/$(PROJECT).asc: build/$(PROJECT).json
-	nextpnr-ice40 --gui -ql $(subst .asc,,$@)-nextpnr.log ${NEXTPNR_OPTS} --${FPGA_TYPE} --package ${FPGA_PKG} --json $< --pcf ${PCF} --asc $@
+	nextpnr-ice40 -ql $(subst .asc,,$@)-nextpnr.log ${NEXTPNR_OPTS} --${FPGA_TYPE} --package ${FPGA_PKG} --json $< --pcf ${PCF} --asc $@
 
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.asc
 	icepack $< $@
