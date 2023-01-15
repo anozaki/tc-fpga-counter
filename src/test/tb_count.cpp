@@ -5,7 +5,7 @@
 #include "VCount.h"
 // #include "VCount___ALL.h"
 
-#define MAX_SIM_TIME 100
+#define MAX_SIM_TIME 200
 vluint64_t sim_time = 0;
 
 int main(int argc, char** argv, char** env) {
@@ -19,7 +19,11 @@ int main(int argc, char** argv, char** env) {
     while (sim_time < MAX_SIM_TIME) {
         dut->clk ^= 1;
         dut->rst = 0;
-        dut->cycle = 10;
+
+        // count up every 10 clock cycle
+        dut->cycle = 9;
+
+        // change segmentation select evert 2 clock cycle
         dut->segtiming = 1;
         dut->eval();
         m_trace->dump(sim_time);
