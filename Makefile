@@ -38,7 +38,7 @@ verilator: $(SRC_V) $(SRC_CPP)
 	verilator -cc $(SRC_V) --top-module Count -Wno-WIDTH -Wno-SELRANGE -O3 --x-assign fast --x-initial fast --noassert --trace --exe $(SRC_CPP)
 	make -C obj_dir -f VCount.mk VCount
 	./obj_dir/VCount
-	gtkwave ./waveform.vcd
+	cd src/gtkwave; gtkwave ./session.gtkw
 
 flash: $(BUILD_DIR)/$(PROJECT).bin
 	iceprog $<

@@ -5,7 +5,7 @@
 #include "VCount.h"
 // #include "VCount___ALL.h"
 
-#define MAX_SIM_TIME 200
+#define MAX_SIM_TIME 1000
 vluint64_t sim_time = 0;
 
 int main(int argc, char** argv, char** env) {
@@ -14,7 +14,7 @@ int main(int argc, char** argv, char** env) {
     Verilated::traceEverOn(true);
     VerilatedVcdC *m_trace = new VerilatedVcdC;
     dut->trace(m_trace, 5);
-    m_trace->open("waveform.vcd");
+    m_trace->open("src/gtkwave/waveform.vcd");
 
     while (sim_time < MAX_SIM_TIME) {
         dut->clk ^= 1;
@@ -22,7 +22,7 @@ int main(int argc, char** argv, char** env) {
         dut->hex = 1;
 
         // count up every 10 clock cycle
-        dut->cycle = 1;
+        dut->cycle = 50;
 
         // change segmentation select evert 2 clock cycle
         dut->segtiming = 1;
