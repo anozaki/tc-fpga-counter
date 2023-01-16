@@ -10,10 +10,10 @@ Turning complete (TC) added Verilog export and allowed us to load the design ont
 <img src="docs/alchitry-io.png" width="400px">
 </div>
 
-Additionally running simulation outside of Turing Complete to get a waveform output.
+Additionally, we are able to use external tools to simulate the circuite such as Verilator and view the waveform in gtkwave.
 
 <div style="text-align: center">
-<img src="docs/gtkwave.png" width="500px">
+<img src="docs/gtkwave.png" width="1024px">
 </div>
 
 
