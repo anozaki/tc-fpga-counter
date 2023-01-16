@@ -16,9 +16,6 @@ module TC_Register (clk, rst, load, save, in, out);
         value = {BIT_WIDTH{1'b0}};
     end
     
-    // modified - The original output would not compile.
-    //            Removed "load", since my design didn't require it and simplified this file.
-
     always @ (posedge clk) begin
         if (rst) begin
             value = {BIT_WIDTH{1'b0}};

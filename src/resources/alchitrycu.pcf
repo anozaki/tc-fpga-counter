@@ -1,5 +1,6 @@
 set_io clk   P7
 set_io rst_n P8
+set_io hex_sel_btn G11
 
 set_io io_sel_0 G3
 set_io io_sel_1 G1

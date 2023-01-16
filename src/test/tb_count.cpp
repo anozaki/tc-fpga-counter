@@ -19,9 +19,10 @@ int main(int argc, char** argv, char** env) {
     while (sim_time < MAX_SIM_TIME) {
         dut->clk ^= 1;
         dut->rst = 0;
+        dut->hex = 1;
 
         // count up every 10 clock cycle
-        dut->cycle = 9;
+        dut->cycle = 1;
 
         // change segmentation select evert 2 clock cycle
         dut->segtiming = 1;

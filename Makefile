@@ -26,6 +26,10 @@ build/$(PROJECT).json: $(SRC_V)
 build/$(PROJECT).asc: build/$(PROJECT).json
 	nextpnr-ice40 -ql $(subst .asc,,$@)-nextpnr.log ${NEXTPNR_OPTS} --${FPGA_TYPE} --package ${FPGA_PKG} --json $< --pcf ${PCF} --asc $@
 
+.PHONY: nextpnr
+nextpnr: build/$(PROJECT).json
+	nextpnr-ice40 --gui ${NEXTPNR_OPTS} --${FPGA_TYPE} --package ${FPGA_PKG} --json $< --pcf ${PCF}
+
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.asc
 	icepack $< $@
 
