@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Mon Jan 16 19:11:18 2023
+[*]
+[dumpfile] "./waveform.vcd"
+[savefile] "./session.gtkw"
+[timestart] 79
+[size] 1502 836
+[pos] 979 351
+*-5.153003 191 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP/
+[treeopen] TOP/Count/
+[sst_width] 297
+[signals_width] 208
+[sst_expanded] 1
+[sst_vpaned_height] 240
+@28
+[color] 1
++{Main Clock} TOP/Count/clk
+@c02022
+^1 ./7segment.gtkw
++{Segment Output} TOP/Count/seg[7:0]
+@28
+(0)TOP/Count/seg[7:0]
+(1)TOP/Count/seg[7:0]
+(2)TOP/Count/seg[7:0]
+(3)TOP/Count/seg[7:0]
+(4)TOP/Count/seg[7:0]
+(5)TOP/Count/seg[7:0]
+(6)TOP/Count/seg[7:0]
+(7)TOP/Count/seg[7:0]
+@1401200
+-group_end
+@28
+[color] 7
++{Select Segment 0} TOP/Count/sel1[0]
+[color] 7
++{Select Segment 1} TOP/Count/sel2[0]
+[color] 7
++{Select Segment 2} TOP/Count/sel3[0]
+[color] 7
++{Select Segment 3} TOP/Count/sel4[0]
+[pattern_trace] 1
+[pattern_trace] 0
