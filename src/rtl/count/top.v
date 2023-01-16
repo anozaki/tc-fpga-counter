@@ -29,7 +29,7 @@ module top (clk, rst_n, io_sel_0, io_sel_1, io_sel_2, io_sel_3, io_seg, hex_sel_
         .sel4(io_sel_3_t),
         .seg(io_seg_t),
         .cycle(100_000_000),
-        .segtiming(200),
+        .segtiming(250),
         .hex(hex_sel_btn)
     );
 
